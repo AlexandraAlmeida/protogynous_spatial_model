@@ -1,5 +1,10 @@
 function Gonochore_F_FLEP(Lf)
 
+%%% FLEP (fraction of LEP) é a fracção não pescada de LEP numa população sujeita a pesca
+%%% LEP (lifetime egg production) é o esforço reprodutivo médio ao longo da vida de um recruta. 
+%%% LEP é calculado como a soma do produto da sobrevivência até à idade a com a fecundidade na idade a, para todas as idades.
+
+
 % Simulate FLEP for range of F values for a gonochore,
 % given a particular Lf (mean length of entry to fishery)
 
@@ -8,7 +13,7 @@ LifeHistory_Params(Lf)
 load lifehistory_params.mat
 
 
-F = [0:0.01:100, 750:0.1:800] ;%fishing mortality (0-2, by 0.01)
+F = [0:0.01:100, 750:0.1:800] ;%fishing mortality (0-2, by 0.01) %%% vetor pq esta separado com ","
 
 LEP=nan(1,length(F)) ;
 
