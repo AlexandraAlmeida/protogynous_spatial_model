@@ -1,4 +1,4 @@
-function LifeHistory_Params(Lf)
+function LifeHistory_Params(Lf) 
 
 % Specify life history parameters to be used in the model
 
