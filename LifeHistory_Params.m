@@ -2,21 +2,21 @@ function LifeHistory_Params(Lf)
 
 % Specify life history parameters to be used in the model
 
-Amax = 20 ; % Number of age classes (max age is Amax-1 bc start counting at age 0)
-a = 1 ; % constant in betacdf function (positive concavity)
+Amax = 20 ; % Number of age classes (max age is Amax-1 bc start counting at age 0) %%% Vai de 0 a 19, logo tem 20 classes
+a = 1 ; % constant in betacdf function (positive concavity) %%% Concavidade negativa
 
 % Reproduction 
-c = 7.04 ;  % Constant in fecundity relationship
-e = 2.95 ;  % Exponent in allometric relationship
-K = 0.000003 ;  % Slope of fert. fxn parameter
+c = 7.04 ;  % Constant in fecundity relationship %%% v do artigo 
+e = 2.95 ;  % Exponent in allometric relationship %%% w do artigo
+K = 0.000003 ;  % Slope of fert. fxn parameter 
 X = 0.09 ;  % Intercept of fertilization fxn parameter
 
 % vonBert Growth
 D = zeros(2,Amax) ; 
 D(1,:) = (0:(Amax-1)) ;
 D(2,1) = 8 ;
-k = 0.05 ; %original shape
-Linf = 90 ;
+k = 0.05 ; %original shape  %%% k do artigo
+Linf = 90 ; 
 T0 = -1.875 ; % Age at size 0 (gives it 8cm at size 0)
 D(2,:) = Linf.*(1-exp(-k.*((0:(Amax-1))-T0))) ;
 
