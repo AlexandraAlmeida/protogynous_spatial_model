@@ -12,13 +12,13 @@ K = 0.000003 ;  % Slope of fert. fxn parameter
 X = 0.09 ;  % Intercept of fertilization fxn parameter
 
 % vonBert Growth
-D = zeros(2,Amax) ; 
-D(1,:) = (0:(Amax-1)) ;
-D(2,1) = 8 ;
+D = zeros(2,Amax) ;  %%% Cria uma matriz 2*20 de zeros
+D(1,:) = (0:(Amax-1)) ; %%% Enche a primeira linha, todas as colunas de 0 a 19
+D(2,1) = 8 ; %%% Poe o valor 8 na segunda linha, primeira coluna
 k = 0.05 ; %original shape  %%% k do artigo
-Linf = 90 ; 
-T0 = -1.875 ; % Age at size 0 (gives it 8cm at size 0)
-D(2,:) = Linf.*(1-exp(-k.*((0:(Amax-1))-T0))) ;
+Linf = 90 ;  %%% Linf do artigo
+T0 = -1.875 ; % Age at size 0 (gives it 8cm at size 0) %%% a0 do artigo
+D(2,:) = Linf.*(1-exp(-k.*((0:(Amax-1))-T0))) ; %%% La do artigo - expressao 5 da pag.228
 
 % Recruitment 
 %uA = 0.42
