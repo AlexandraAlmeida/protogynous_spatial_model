@@ -14,6 +14,7 @@ load lifehistory_params.mat
 
 
 F = [0:0.01:100, 750:0.1:800] ;%fishing mortality (0-2, by 0.01) %%% vetor pq esta separado com ","
+%%% (0, 0.01, 0.02 ..., 100, 750, 750.1,...,800)
 
 LEP=nan(1,length(F)) ;
 
