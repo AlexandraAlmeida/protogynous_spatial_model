@@ -16,16 +16,16 @@ load lifehistory_params.mat
 F = [0:0.01:100, 750:0.1:800] ;%fishing mortality (0-2, by 0.01) %%% vetor pq esta separado com ","
 %%% (0, 0.01, 0.02 ..., 100, 750, 750.1,...,800)
 
-LEP=nan(1,length(F)) ;
+LEP=nan(1,length(F)) ; %%% matriz com 1 linha e 10500 colunas
 
     for f=1:length(F)
     
-isfished(:,1)=1./(1+exp(-r.*((D(2,:)')-Lf))) ;
-Z=uA+((F(f)).*isfished) ; %Annual adult survival per age class
-Surv=exp(-Z)  ; %instantaneous mortality rate... e^-(M+F)
-Surv = [1; cumprod(Surv(1:end-1))]; % cumulative survival to each age
-E=(EggProd.*M_tmp) ; %Egg production
-LEP(f)=(sum(Surv.*E(:)))/2 ; %.*(1-CRT) ;
+isfished(:,1)=1./(1+exp(-r.*((D(2,:)')-Lf))) ; %%% seletividade - expressao 3 da pag.228
+Z=uA+((F(f)).*isfished) ; %Annual adult survival per age class %%% Interior da expressao 4 da pag.228
+Surv=exp(-Z)  ; %instantaneous mortality rate... e^-(M+F) %%% expressao 4 da pag.228
+Surv = [1; cumprod(Surv(1:end-1))]; % cumulative survival to each age %%% produto cumulativo de 1 ate fim-1
+E=(EggProd.*M_tmp) ; %Egg production  %%% expressao 6 da pag. 228
+LEP(f)=(sum(Surv.*E(:)))/2 ; %.*(1-CRT) ; %%%(sum(survival to age a * fecundidade to age a))/2
 
     end 
 
@@ -39,7 +39,6 @@ save('FLEPmat.mat','FLEPmat')
 
 
 
-    
     
 
     
