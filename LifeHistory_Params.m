@@ -23,24 +23,24 @@ D(2,:) = Linf.*(1-exp(-k.*((0:(Amax-1))-T0))) ; %%% La do artigo - expressao 5 d
 % Recruitment 
 %uA = 0.42
 %uA = 0.28
-uA = 0.35 ;  % Adult mortality
-Surv = exp(-uA.*D(1,:)');
-EggProd = c.*(D(2,:)').^e ;
+uA = 0.35 ;  % Adult mortality %%% miuA do artigo - mortalidade natural
+Surv = exp(-uA.*D(1,:)'); %%% exp(-miuA * trans(classes da idade)) -> -0.35*[0,1,...,19]'
+EggProd = c.*(D(2,:)').^e ; %%% v*La^w do artigo (parte da expressao 6)
 % Stand-in maturity function to calculate LEP_unfished
-Lm = 20 ; % Length at which 50% of fish mature 
-q = 1 ;  % Shape parameter in maturity function 
+Lm = 20 ; % Length at which 50% of fish mature %%% Lm do artigo
+q = 1 ;  % Shape parameter in maturity function %%% q do artigo
 % Probability of Maturity 
-M_tmp = 1./(1+exp(-q.*((D(2,:)')-Lm)));  
+M_tmp = 1./(1+exp(-q.*((D(2,:)')-Lm)));  %%% pM(La) - expressao 8 do artigo
 % Stock-recruitment function
-CRT = 0.25; % Critical value of LEP for persistence
-LEP_unfished = ((sum(Surv.*EggProd.*M_tmp))/2);
-Alpha = 1/(CRT*LEP_unfished);  % BevHolt params.
-Beta = 1  ;
+CRT = 0.25; % Critical value of LEP for persistence %%% CTR do artigo - critical replacement threshold 
+LEP_unfished = ((sum(Surv.*EggProd.*M_tmp))/2); %%% (sum(survival to age a * fecundidade to age a))/2
+Alpha = 1/(CRT*LEP_unfished);  % BevHolt params. %%% alpha da tabela 2?? - density-independent beverton-holt settler survival
+Beta = 1  ; %%% asymptotic beverton-holt maximum recruit density
 
 % Adult Survival
-r =1;  % Steepness of selectivity curve 
-isfished=nan(Amax,1) ; % Fishing mortality by age
-isfished(:,1)=1./(1+exp(-r.*((D(2,:)')-Lf))) ;
+r =1;  % Steepness of selectivity curve %%% r do artigo
+isfished=nan(Amax,1) ; % Fishing mortality by age %%% vetor com 20 linhas e uma coluna
+isfished(:,1)=1./(1+exp(-r.*((D(2,:)')-Lf))) ; %%% seletividade - expressao 3 da pag.228
 
 save lifehistory_params.mat
 clear 
@@ -48,32 +48,32 @@ clear
 % Parameters specific to each sex-change mode:
 %--------------------------------------------------------------------------
 % SC1 - Absolute Length
-Lm = 20 ; % Length at which 50% of fish mature 
-q = 1 ;  % Shape parameter in maturity function 
-Lc = 30 ;  % Length at which 50% of fish change sex
-p = 1 ; % Shape param. in sex change function
+Lm = 20 ; % Length at which 50% of fish mature  %%% Lm do artigo
+q = 1 ;  % Shape parameter in maturity function %%% q do artigo
+Lc = 30 ;  % Length at which 50% of fish change sex %%% Lc do artigo  
+p = 1 ; % Shape param. in sex change function %%% p do artigo
 
 save SC1_params.mat
 clear 
 
 %--------------------------------------------------------------------------
 % SC2 - Mean Length
-Lm = 4 ; % Difference from the mean size at which prob. of maturity is 0.5
-q = 1 ;  % Shape parameter in maturity function
-Lc = 14 ; % Difference from the mean size at which prob. sex change is 0.5
-p = 1 ;  % Shape parameter in sex change fxn
+Lm = 4 ; % Difference from the mean size at which prob. of maturity is 0.5 %%% Lm do artigo
+q = 1 ;  % Shape parameter in maturity function %%% q do artigo
+Lc = 14 ; % Difference from the mean size at which prob. sex change is 0.5 %%% Lc do artigo
+p = 1 ;  % Shape parameter in sex change fxn %%% p do artigo
 
 save SC2_params.mat
 clear 
 
 %--------------------------------------------------------------------------
 % SC3 - Frequency of Smaller Individuals
-Fm = 0.60 ;
+Fm = 0.60 ; %%% Fm do artigo
 %Fm = 0.50 ; % Frequency of smaller individuals where prob. of maturity is 0.5
-q = 50 ;  % Shape parameter in maturity function
-Fc = 0.67 ;
+q = 50 ;  % Shape parameter in maturity function %%% q do artigo
+Fc = 0.67 ; %%%  Fc do artigo
 %Fc = 0.67 ; %********* %Fc = 0.67 ;  % Frequency of smaller mature indiv where prob of sex change is 0.5
-p = 50 ;  % Shape parameter in sex change fxn
+p = 50 ;  % Shape parameter in sex change fxn %%% p do artigo
 
 save SC3_params.mat
 
