@@ -1,5 +1,4 @@
-function [F] = Find_F(FLEPtarg)
-%%% Teste da Alexandra
+function [F] = Find_F(FLEPtarg)  # F taxa de mortalidade
 
 % Table lookup to find the desired value of F given a gonochore FLEP
 
