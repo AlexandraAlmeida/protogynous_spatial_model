@@ -8,7 +8,7 @@ load 'FLEPmat.mat' ;
 
 Ftmp = abs(FLEPmat(:,2) - FLEPtarg) ;  # oláaaaaa
 
-index = find(Ftmp == min(Ftmp),1) ;
+index = find(Ftmp == min(Ftmp),1) ; #OLeeeeeeeeeeeeeee
 
 F = FLEPmat(index,1) ;
 
