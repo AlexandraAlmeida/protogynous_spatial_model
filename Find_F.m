@@ -6,7 +6,7 @@ function [F] = Find_F(FLEPtarg)  # F taxa de mortalidade
 
 load 'FLEPmat.mat' ;
 
-Ftmp = abs(FLEPmat(:,2) - FLEPtarg) ;
+Ftmp = abs(FLEPmat(:,2) - FLEPtarg) ;  # oláaaaaa
 
 index = find(Ftmp == min(Ftmp),1) ;
 
