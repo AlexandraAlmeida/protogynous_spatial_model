@@ -4,7 +4,7 @@ function [F] = Find_F(FLEPtarg)  # F taxa de mortalidade
 
 % Table lookup to find the desired value of F given a gonochore FLEP
 
-load 'FLEPmat.mat' ;
+load 'FLEPmat.mat' ;    # lalalalalalalalalalalala
 
 Ftmp = abs(FLEPmat(:,2) - FLEPtarg) ;  # oláaaaaa
 
