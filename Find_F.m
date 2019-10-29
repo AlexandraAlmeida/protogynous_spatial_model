@@ -10,7 +10,7 @@ Ftmp = abs(FLEPmat(:,2) - FLEPtarg) ;  # oláaaaaa
 
 index = find(Ftmp == min(Ftmp),1) ;
 
-F = FLEPmat(index,1) ;   #  carina
+F = FLEPmat(index,1) ; %%% Teste
 
 
 %%% Mais um teste depois do olá
