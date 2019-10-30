@@ -27,6 +27,7 @@ Surv = [1; cumprod(Surv(1:end-1))]; % cumulative survival to each age %%% produt
 E=(EggProd.*M_tmp) ; %Egg production  %%% expressao 6 da pag. 228
 LEP(f)=(sum(Surv.*E(:)))/2 ; %.*(1-CRT) ; %%%(sum(survival to age a * fecundidade to age a))/2
 
+%%% LEP = sum ((4)*(6))
     end 
 
 FLEP  = LEP./LEP_unfished;
